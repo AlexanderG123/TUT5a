@@ -1,0 +1,36 @@
+---
+title: "Analyzing the life expectancy of Australian Prime Ministers"
+author: "Alexander Guarasci"
+date: "`r format(Sys.Date(), '%B %d, %Y')`" # This will add the current date
+date-format: long
+execute:
+  echo: false
+format: pdf
+fig-pos: "H"
+---
+```{r}
+knitr::opts_chunk$set(echo = FALSE, results = "hide", message = FALSE, warning = FALSE)
+```
+Fart anus 
+
+```{r fig.width=10, fig.height=8}
+library(tidyverse)
+cleaned_data <- read_csv("/Users/alexanderguarasci/TUT5a/cleaned_data.csv")
+cleaned_data |>
+  mutate(
+    still_alive = if_else(is.na(death_year), "Yes", "No"),
+    death_year = if_else(is.na(death_year), as.integer(2023), death_year) # Use current year for living PMs
+  ) |>
+  mutate(name = as_factor(name)) |>
+  ggplot(
+    aes(x = birth_year, xend = death_year, y = name, yend = name, color = still_alive)
+  ) +
+  geom_segment() +
+  labs(
+    x = "Year of Birth", y = "Prime Minister", color = "PM is Currently Alive"
+  ) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "bottom") 
+```
+
