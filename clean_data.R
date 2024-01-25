@@ -1,17 +1,5 @@
-library(babynames)
-library(gh)
-library(here)
-library(httr)
-library(janitor)
-library(jsonlite)
-library(knitr)
-library(lubridate)
-library(purrr)
 library(rvest)
-library(spotifyr)
-library(tesseract)
 library(tidyverse)
-library(usethis)
 library(xml2)
 raw_data <-
   read_html(

@@ -7,11 +7,30 @@ execute:
   echo: false
 format: pdf
 fig-pos: "H"
+bibliography: "references.bib"
 ---
 ```{r}
 knitr::opts_chunk$set(echo = FALSE, results = "hide", message = FALSE, warning = FALSE)
 ```
-Fart anus 
+
+# The Process
+
+The first step in this process began with simulating the data. This required help from R [@R], Tidyverse [@tidyverse] and babynames [@babynames]. It was not a technically challenging task and does not requite much discussion. 
+
+The next step in the endeavour was to examine the lifespans and terms of Australian prime ministers was gathering information from Wikipedia [@wikipedia], a vast and openly available database. Wikipedia is a great place to start if you want comprehensive information about Australian prime ministers because it covers a wide range of historical and modern figures. To do this I needed help from rvest [@rvest] and xml2 [@xml2]. At first, the procedure appeared simple, but difficulties quickly surfaced, especially when extracting the data and organizing it into a manner that was readable.
+
+Making a tibble, a kind of data frame used in R, was one of the first significant challenges faced; it turned out to be more challenging than expected. When attempting to extract only the pertinent data table from Wikipedia, this complexity emerged. The selector tool, an online tool designed to make this process easier, was unable to successfully isolate the necessary table. Due to this challenge, the project's timeframe was greatly stretched and outside help was needed.
+
+The project took a turn for the better when I asked my roommate for assistance. His knowledge played a crucial role in resolving the data access issue. Working with someone who was more skilled at extracting and manipulating data was illuminating and turned an unpleasant obstacle into a teaching moment.
+
+
+After the tibble with distinct columns for names and years was successfully created, the project gathered speed again. Another problem was getting the years out of the data, but my roommate and I were able to solve it by using Google searches in addition to more conversation. This was my favourite aspect of the problem-solving and discovery process because it required using both technical know-how and creative thinking to pull relevant information from unprocessed data.
+
+The project's later phases, which involved data analysis and visualization, were simpler. I was able to witness the results of my earlier, arduous data preparation work during this process, which made it enjoyable and rewarding.
+
+This project has highlighted the value of collaboration and the learning opportunities it presents, especially when dealing with complex data analysis tasks. Upon reflection, one important takeaway for future projects is the significance of seeking help earlier in the process. While self-sufficiency is valuable, knowing when a problem is beyond one's current capabilities can save time and reduce frustration. This project has also made me realize how subtle it is to distinguish between challenges that require external assistance and those that can be solved independently.
+
+# Data Analysis 
 
 ```{r fig.width=10, fig.height=8}
 library(tidyverse)
@@ -34,3 +53,10 @@ cleaned_data |>
   theme(legend.position = "bottom") 
 ```
 
+A closer look at the Australian Prime Ministers' lifespans and periods of office yields some intriguing conclusions. This data set offers a historical perspective on the duration and tenure of these political leaders, spanning 31 persons from Edmund Barton to Anthony Albanese.
+
+First of all, the information reveals a notable variation in the dying ages of these prime ministers, ranging from 59 years for Harold Holt to 98 years for Gough Whitlam. This broad range indicates variations in life expectancy across the terms of these prime ministers' tenure, which may be due to shifts in healthcare, lifestyle, and sociopolitical pressures related to holding the nation's top office. Notably, the longest-living Australian prime minister in this dataset was Gough Whitlam, who held the position from 1972 to 1975 and lived to be 98 years old.
+
+Ultimately, this data set can be used as the basis for additional in-depth analysis, such establishing a relationship between these prime ministers' lifespans and the historical events they oversaw or their terms of office. These kinds of analyses might provide more profound understanding of the strains placed on Australia's political leadership and its possible effects on longevity and health. The data set also illustrates how Australian political history has developed via the lives of its leaders, charting the changes in the country's governance and policy orientation over a century and a half.
+
+# References
